@@ -1,4 +1,5 @@
 import React from 'react';
+import {Accordion} from "./components/Accordion/Accordion";
 
 const App = () => {
     return (
@@ -8,28 +9,8 @@ const App = () => {
     );
 };
 
-function Accordion() {
-    return <div>
-        <Accordiontitle/>
-        <AccordionBody/>
-    </div>
-}
-
-function Accordiontitle() {
-    return (
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-    )
-}
 
 
-function AccordionBody() {
-    return (
-        <h3>Menu</h3>
-    )
-}
+
 
 export default App;
