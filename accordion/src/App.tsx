@@ -8,8 +8,8 @@ const App = () => {
             <PageTitle title={"This is APP component"}/>
             <>Article 1</>
             <Rating value={3}/>
-            <Accordion title={"This is Accordon 1"}/>
-            <Accordion title={"This is Accordon 2"}/>
+            <Accordion titleValue={"This is Accordon 1"} collapsed={true}/>
+            <Accordion titleValue={"This is Accordon 2"} collapsed={false}/>
             <>Article 2</>
             <Rating value={4}/>
         </div>
