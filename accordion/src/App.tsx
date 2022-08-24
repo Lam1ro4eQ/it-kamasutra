@@ -16,7 +16,11 @@ const App = () => {
     );
 };
 
-function PageTitle(props: any) {
+type PageTitlePropsType = {
+    title: string
+}
+
+function PageTitle(props: PageTitlePropsType) {
     return <div>{props.title}</div>
 }
 
