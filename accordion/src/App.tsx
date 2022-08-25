@@ -1,6 +1,7 @@
 import React from 'react';
 import {Accordion} from "./components/Accordion/Accordion";
-import Rating from "./components/Rating/Rating";
+import {Rating} from "./components/Rating/Rating";
+
 
 const App = () => {
     return (
@@ -11,7 +12,12 @@ const App = () => {
             <Accordion titleValue={"This is Accordon 1"} collapsed={true}/>
             <Accordion titleValue={"This is Accordon 2"} collapsed={false}/>
             <>Article 2</>
+            <Rating value={0}/>
+            <Rating value={1}/>
+            <Rating value={2}/>
+            <Rating value={3}/>
             <Rating value={4}/>
+            <Rating value={5}/>
         </div>
     );
 };
