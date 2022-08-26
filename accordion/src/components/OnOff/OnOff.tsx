@@ -1,32 +1,45 @@
 import React from 'react';
 
 
-
 type OnOffPropsType = {
     on: boolean
 }
 
 
-
 const OnOff = (props: OnOffPropsType) => {
-    if (props.on) {
+    const onStyle = {
+        width: '30px',
+        height: '20px',
+        border: '1px solid black',
+        display: 'inline-block',
+        margin: '10px 10px',
+        backgroundColor: props.on ? 'green' : 'white'
+    };
+    const ofStyle = {
+        width: '30px',
+        height: '20px',
+        border: '1px solid black',
+        display: 'inline-block',
+        margin: '10px 10px',
+        backgroundColor: props.on ? 'white' : 'red'
+    };
+    const indicatorStyle = {
+        width: '10px',
+        height: '10px',
+        borderRadius: '5px',
+        border: '1px solid black',
+        display: 'inline-block',
+        margin: 'auto auto',
+        backgroundColor: props.on ? 'green' : 'red'
+    };
+
         return (
             <div>
-                <button>on</button>
-                <button>off</button>
-                <input  type='radio'></input>
+                <div style={onStyle}>on</div>
+                <div style={ofStyle}>off</div>
+                <div style={indicatorStyle}></div>
             </div>
         );
-    } else {
-        return (
-            <div>
-                <button>on</button>
-                <button>off</button>
-                <input type='radio'></input>
-            </div>
-        )
-    }
-
 };
 
 export default OnOff;
