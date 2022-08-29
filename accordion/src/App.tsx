@@ -19,7 +19,7 @@ const App = () => {
             <Rating value={3}/>
             <Rating value={4}/>
             <Rating value={5}/>
-            <OnOff on={false}/>
+            <OnOff />
         </div>
     );
 };
