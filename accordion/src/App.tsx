@@ -2,11 +2,13 @@ import React from 'react';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import OnOff from "./components/OnOff/OnOff";
+import {UnControlledAccordion} from "./components/UnControlledAccordion/UnControlledAccordion";
+import {UnControlledRating} from "./components/UnControlledRating/UnControlledRating";
 
 
 const App = () => {
     return (
-        <div>
+        <div className={"App"}>
             <PageTitle title={"This is APP component"}/>
             <>Article 1</>
             <Rating value={3}/>
@@ -20,6 +22,8 @@ const App = () => {
             <Rating value={4}/>
             <Rating value={5}/>
             <OnOff />
+            <UnControlledAccordion titleValue={"This is UnControlledAccordion "}/>
+            <UnControlledRating/>
         </div>
     );
 };
