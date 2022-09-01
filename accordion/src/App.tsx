@@ -8,15 +8,14 @@ import {UnControlledRating} from "./components/UnControlledRating/UnControlledRa
 
 const App = () => {
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
-
+    let [collapsed, setCollapsed] = useState(false)
     return (
         <div className={"App"}>
             <PageTitle title={"This is APP component"}/>
             <>Article 1</>
             <Rating value={ratingValue} onClick={setRatingValue}/>
 
-            <Accordion titleValue={"This is Accordon 1"} collapsed={true}/>
-            <Accordion titleValue={"This is Accordon 2"} collapsed={false}/>
+            <Accordion titleValue={"This is Accordon "} collapsed={collapsed} onClick={setCollapsed}/>
 
             <>Article 2</>
             {/*<Rating value={0}/>*/}
