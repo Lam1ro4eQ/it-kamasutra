@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 
 type OnOffPropsType = {
-    // on: boolean
+    on: boolean
+    SetOn: () => void
 }
 
 
 const OnOff = (props: OnOffPropsType) => {
-    let [on,Seton] = useState(false)
+
 
     const onStyle = {
         width: '30px',
@@ -15,7 +16,7 @@ const OnOff = (props: OnOffPropsType) => {
         border: '1px solid black',
         display: 'inline-block',
         margin: '10px 10px',
-        backgroundColor: on ? 'green' : 'white'
+        backgroundColor: props.on ? 'green' : 'white'
     };
     const ofStyle = {
         width: '30px',
@@ -23,7 +24,7 @@ const OnOff = (props: OnOffPropsType) => {
         border: '1px solid black',
         display: 'inline-block',
         margin: '10px 10px',
-        backgroundColor: on ? 'white' : 'red'
+        backgroundColor: props.on ? 'white' : 'red'
     };
     const indicatorStyle = {
         width: '10px',
@@ -32,16 +33,22 @@ const OnOff = (props: OnOffPropsType) => {
         border: '1px solid black',
         display: 'inline-block',
         margin: 'auto auto',
-        backgroundColor: on ? 'green' : 'red'
+        backgroundColor: props.on ? 'green' : 'red'
     };
 
-        return (
-            <div>
-                <div style={onStyle} onClick={()=>{Seton(true)}}>on</div>
-                <div style={ofStyle} onClick={()=>{Seton(false)}}>off</div>
-                <div style={indicatorStyle}></div>
+    return (
+        <div>
+            <div style={onStyle} onClick={() => {
+                props.SetOn()
+            }}>on
             </div>
-        );
+            <div style={ofStyle} onClick={() => {
+                props.SetOn()
+            }}>off
+            </div>
+            <div style={indicatorStyle}></div>
+        </div>
+    );
 };
 
 export default OnOff;
