@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 
 type UnOnOffPropsType = {
-    // on: boolean
+    onChange: (on:boolean) => void
 }
 
 
@@ -35,10 +35,19 @@ export const UnControlledOnOff = (props: UnOnOffPropsType) => {
         backgroundColor: on ? 'green' : 'red'
     };
 
+    const onClicked = () => {
+        {Seton(true)}
+        props.onChange(true)
+    }
+    const ofClicked = () => {
+        {Seton(false)}
+        props.onChange(false)
+    }
+
         return (
             <div>
-                <div style={onStyle} onClick={()=>{Seton(true)}}>on</div>
-                <div style={ofStyle} onClick={()=>{Seton(false)}}>off</div>
+                <div style={onStyle} onClick={onClicked}>on</div>
+                <div style={ofStyle} onClick={ofClicked}>off</div>
                 <div style={indicatorStyle}></div>
             </div>
         );

@@ -26,7 +26,7 @@ const App = () => {
             {/*<Rating value={3}/>*/}
             {/*<Rating value={4}/>*/}
             {/*<Rating value={5}/>*/}
-            <UnControlledOnOff/>
+            <UnControlledOnOff onChange={SetOn}/> {on.toString()}
             <UnControlledAccordion titleValue={"This is UnControlledAccordion "}/>
             <UnControlledRating/>
             <OnOff on={on} SetOn={()=>{SetOn(!on)}}/>
