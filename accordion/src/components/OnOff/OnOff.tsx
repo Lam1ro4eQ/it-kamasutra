@@ -3,11 +3,11 @@ import React from 'react';
 
 type OnOffPropsType = {
     on: boolean
-    SetOn: () => void
+    SetOn: (on:boolean) => void
 }
 
 
-const OnOff = (props: OnOffPropsType) => {
+export const OnOff = (props: OnOffPropsType) => {
 
 
     const onStyle = {
@@ -39,11 +39,11 @@ const OnOff = (props: OnOffPropsType) => {
     return (
         <div>
             <div style={onStyle} onClick={() => {
-                props.SetOn()
+                props.SetOn(true)
             }}>on
             </div>
             <div style={ofStyle} onClick={() => {
-                props.SetOn()
+                props.SetOn(false)
             }}>off
             </div>
             <div style={indicatorStyle}></div>
@@ -51,4 +51,3 @@ const OnOff = (props: OnOffPropsType) => {
     );
 };
 
-export default OnOff;
