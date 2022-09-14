@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {action} from "@storybook/addon-actions";
 import {Accordion} from "./Accordion";
 import {AccordionPropsType} from "./Accordion";
-import {ComponentMeta, ComponentStory} from "@storybook/react";
+import {ComponentMeta, ComponentStory, Story} from "@storybook/react";
 
 
 export default {
@@ -38,14 +38,17 @@ OffModeCollapsed2.args = {
 }
 
 
-export const ModeChanging = () => {
+export const ModeChanging: ComponentStory<typeof Accordion> = (args) => {
     let [collapsed, setCollapsed] = useState(false)
-    return <Accordion titleValue={"This is Accordion stories mode change"} collapsed={collapsed} onClick={() => {
-        setCollapsed(!collapsed)
-    }} items={[
-        {title: 'Dimych', value: 1},
-        {title: 'Valera', value: 2},
-        {title: 'Artem', value: 3},
-        {title: 'Viktor', value: 4}
-    ]}/>
+
+    return <Accordion {...args} collapsed={collapsed} onClick={() => setCollapsed(!collapsed)}/>
 }
+    ModeChanging.args = {
+        titleValue: "Users",
+        items: [
+            {title: 'Dimych', value: 1},
+            {title: 'Valera', value: 2},
+            {title: 'Artem', value: 3},
+            {title: 'Viktor', value: 4}
+        ]
+    }

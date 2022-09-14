@@ -41,6 +41,10 @@ function AccordionBody(props:AccordionBodyType) {
     return (
         <ul>
             {props.items.map((i,index) => <li key={index}>{i.title}</li>)}
+            {/*<li>1</li>*/}
+            {/*<li>1</li>*/}
+            {/*<li>1</li>*/}
+            {/*<li>1</li>*/}
         </ul>
     )
 }
