@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 
 
@@ -20,11 +20,13 @@ export const UncontrolledInputWithTrackingValue = () => {
 
 export const UncontrolledInputWithTrackingValueByButtonPress = () => {
     let [value, setValue] = useState("")
-
-    return <><input/>
-    <button onClick={() => {
-        setValue("yo")
-    }}>save</button> - {value}</>
+    const inputRef = useRef<HTMLInputElement>(null)
+    const save = () => {
+        const el = inputRef.current as HTMLInputElement
+        setValue(el.value)
+    }
+    return <><input ref={inputRef}/>
+    <button onClick={save}>save</button> - {value}</>
 }
 
 
