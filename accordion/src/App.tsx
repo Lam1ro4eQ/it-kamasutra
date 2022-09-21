@@ -5,6 +5,7 @@ import {UnControlledAccordion} from "./components/UnControlledAccordion/UnContro
 import {UnControlledRating} from "./components/UnControlledRating/UnControlledRating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOff";
+import {Select} from "./components/Select/Select";
 
 
 const App = () => {
@@ -39,6 +40,12 @@ const App = () => {
             <OnOff on={on} SetOn={() => {
                 SetOn(!on)
             }}/>
+            <Select items={[
+                {title: 'Dimych', value: 1},
+                {title: 'Valera', value: 2},
+                {title: 'Artem', value: 3},
+                {title: 'Viktor', value: 4}
+            ]} />
         </div>
     );
 };
