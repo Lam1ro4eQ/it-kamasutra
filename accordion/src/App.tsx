@@ -12,13 +12,14 @@ const App = () => {
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [collapsed, setCollapsed] = useState(false)
     let [on, SetOn] = useState(false)
+
     return (
         <div className={"App"}>
             <PageTitle title={"This is APP component"}/>
             <>Article 1</>
             <Rating value={ratingValue} onClick={setRatingValue}/>
 
-            <Accordion titleValue={"This is Accordon "} collapsed={collapsed} items={[
+            <Accordion titleValue={"This is Accordon "} collapsed={collapsed}  items={[
                 {title: 'Dimych', value: 1},
                 {title: 'Valera', value: 2},
                 {title: 'Artem', value: 3},
@@ -40,12 +41,13 @@ const App = () => {
             <OnOff on={on} SetOn={() => {
                 SetOn(!on)
             }}/>
-            <Select items={[
-                {title: 'Dimych', value: 1},
-                {title: 'Valera', value: 2},
-                {title: 'Artem', value: 3},
-                {title: 'Viktor', value: 4}
-            ]} />
+
+            {/*<Select onChangeSelect={onChangeSelect} items={[*/}
+            {/*    {title: 'Dimych', value: 1},*/}
+            {/*    {title: 'Valera', value: 2},*/}
+            {/*    {title: 'Artem', value: 3},*/}
+            {/*    {title: 'Viktor', value: 4}*/}
+            {/*]} />*/}
         </div>
     );
 };
