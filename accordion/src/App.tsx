@@ -12,6 +12,7 @@ const App = () => {
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [collapsed, setCollapsed] = useState(false)
     let [on, SetOn] = useState(false)
+    const [parentValue, setParentValue] = useState<number>(2)
 
     return (
         <div className={"App"}>
@@ -19,14 +20,14 @@ const App = () => {
             <>Article 1</>
             <Rating value={ratingValue} onClick={setRatingValue}/>
 
-            <Accordion titleValue={"This is Accordon "} collapsed={collapsed}  items={[
-                {title: 'Dimych', value: 1},
-                {title: 'Valera', value: 2},
-                {title: 'Artem', value: 3},
-                {title: 'Viktor', value: 4}
-            ]} onClick={() => {
-                setCollapsed(!collapsed)
-            }}/>
+            {/*<Accordion titleValue={"This is Accordon "} collapsed={collapsed}  items={[*/}
+            {/*    {title: 'Dimych', value: 1},*/}
+            {/*    {title: 'Valera', value: 2},*/}
+            {/*    {title: 'Artem', value: 3},*/}
+            {/*    {title: 'Viktor', value: 4}*/}
+            {/*]} onClick={() => {*/}
+            {/*    setCollapsed(!collapsed)*/}
+            {/*}}/>*/}
 
             <>Article 2</>
             {/*<Rating value={0}/>*/}
@@ -42,12 +43,12 @@ const App = () => {
                 SetOn(!on)
             }}/>
 
-            {/*<Select onChangeSelect={onChangeSelect} items={[*/}
-            {/*    {title: 'Dimych', value: 1},*/}
-            {/*    {title: 'Valera', value: 2},*/}
-            {/*    {title: 'Artem', value: 3},*/}
-            {/*    {title: 'Viktor', value: 4}*/}
-            {/*]} />*/}
+            <Select titleValue={"This is Select "} parentValue={parentValue} setParentValue={setParentValue} items={[
+                {title: 'Dimych', value: 1},
+                {title: 'Valera', value: 2},
+                {title: 'Artem', value: 3},
+                {title: 'Viktor', value: 4}
+            ]} />
         </div>
     );
 };
