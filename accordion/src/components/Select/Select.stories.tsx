@@ -35,8 +35,8 @@ OffModeCollapsed2.args = {
 
 export const ModeChanging: ComponentStory<typeof Select> = (args) => {
     let [collapsed, setCollapsed] = useState(false)
-
-    return <Select {...args} />
+    let [parentValue, setParentValue] = useState<number>(2)
+    return <Select {...args} parentValue={parentValue} setParentValue={setParentValue}/>
 }
 ModeChanging.args = {
     titleValue: "Users Select Custom",
@@ -45,5 +45,7 @@ ModeChanging.args = {
         {title: 'Valera', value: 2},
         {title: 'Artem', value: 3},
         {title: 'Viktor', value: 4}
-    ]
+    ],
+
+
 }

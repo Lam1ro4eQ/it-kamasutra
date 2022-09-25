@@ -12,7 +12,9 @@ const App = () => {
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [collapsed, setCollapsed] = useState(false)
     let [on, SetOn] = useState(false)
-    const [parentValue, setParentValue] = useState<number>(2)
+    let [parentValue, setParentValue] = useState<number>(2)
+
+
 
     return (
         <div className={"App"}>
@@ -43,7 +45,7 @@ const App = () => {
                 SetOn(!on)
             }}/>
 
-            <Select titleValue={"This is Select "} parentValue={parentValue} setParentValue={setParentValue} items={[
+            <Select titleValue={"This is CUstom Select "} parentValue={parentValue} setParentValue={setParentValue} items={[
                 {title: 'Dimych', value: 1},
                 {title: 'Valera', value: 2},
                 {title: 'Artem', value: 3},
