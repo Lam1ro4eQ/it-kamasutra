@@ -16,12 +16,21 @@ export type SelectPropsType = {
 
 export function SelectDymich(props: SelectPropsType) {
     const selectedItem = props.items.find(i => i.value === props.value)
+    const [active, setActive] = useState(false)
+    const toggleItems = () => setActive(!active)
+    const onItemClick = (value: any) => {
+        props.onChange(value)
+        toggleItems()
+    }
     return (
-        <div className={style.select}>
-            <h3>{selectedItem && selectedItem.title}</h3>
-            <div className={style.items}>
-                {props.items.map(i => <div key={i.value}>{i.title}</div>)}
-            </div>
+        <div className={style.select + ''}>
+            <h3 className={style.main} onClick={toggleItems}>{selectedItem && selectedItem.title}</h3>
+            {
+                active &&
+                <div className={style.items}>
+                    {props.items.map(i => <div onClick={()=>{onItemClick(i.value)}} key={i.value}>{i.title}</div>)}
+                </div>
+            }
         </div>
     )
 }

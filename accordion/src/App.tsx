@@ -14,6 +14,7 @@ const App = () => {
     let [collapsed, setCollapsed] = useState(false)
     let [on, SetOn] = useState(false)
     let [parentValue, setParentValue] = useState<number>(2)
+    let [selectValue, setSelectValue] = useState<number>(2)
 
 
 
@@ -46,13 +47,13 @@ const App = () => {
                 SetOn(!on)
             }}/>
 
-            <Select titleValue={"This is CUstom Select "} parentValue={parentValue} setParentValue={setParentValue} items={[
-                {title: 'Dimych', value: 1},
-                {title: 'Valera', value: 2},
-                {title: 'Artem', value: 3},
-                {title: 'Viktor', value: 4}
-            ]} />
-            <SelectDymich value={1} onChange={()=>{}} items={[
+            {/*<Select titleValue={"This is CUstom Select "} parentValue={parentValue} setParentValue={setParentValue} items={[*/}
+            {/*    {title: 'Dimych', value: 1},*/}
+            {/*    {title: 'Valera', value: 2},*/}
+            {/*    {title: 'Artem', value: 3},*/}
+            {/*    {title: 'Viktor', value: 4}*/}
+            {/*]} />*/}
+            <SelectDymich  value={selectValue} onChange={setSelectValue} items={[
                 {title: 'Dimych', value: 1},
                 {title: 'Valera', value: 2},
                 {title: 'Artem', value: 3},

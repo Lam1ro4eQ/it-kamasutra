@@ -3,7 +3,7 @@
     border: 1px solid black;
     min-height: 20px;
     min-width: 20px;
-
+    margin: 0;
 }
 
 .items {
