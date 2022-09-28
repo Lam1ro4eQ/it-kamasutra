@@ -28,7 +28,10 @@ export function SelectDymich(props: SelectPropsType) {
             {
                 active &&
                 <div className={style.items}>
-                    {props.items.map(i => <div onClick={()=>{onItemClick(i.value)}} key={i.value}>{i.title}</div>)}
+                    {props.items.map(i => <div className={style.item + " " + (selectedItem === i ? style.selected : "")}
+                                               onClick={() => {
+                                                   onItemClick(i.value)
+                                               }} key={i.value}>{i.title}</div>)}
                 </div>
             }
         </div>

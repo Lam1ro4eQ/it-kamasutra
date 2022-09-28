@@ -2,13 +2,18 @@
     display: inline-block;
     border: 1px solid black;
     min-height: 20px;
-    min-width: 20px;
+    min-width: 40px;
     margin: 0;
 }
 
 .items {
     position: absolute;
-    
+    padding: 5px;
     border: 1px solid black;
 
+}
+
+.item.selected {
+    background-color: #61dafb;
+    color: white;
 }
