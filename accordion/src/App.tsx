@@ -54,10 +54,10 @@ const App = () => {
             {/*    {title: 'Viktor', value: 4}*/}
             {/*]} />*/}
             <SelectDymich  value={selectValue} onChange={setSelectValue} items={[
-                {title: 'Dimych', value: 1},
-                {title: 'Valera', value: 2},
-                {title: 'Artem', value: 3},
-                {title: 'Viktor', value: 4}
+                {title: 'Dimych', value: 0},
+                {title: 'Valera', value: 1},
+                {title: 'Artem', value: 2},
+                {title: 'Viktor', value: 3}
             ]}/>
         </div>
     );
