@@ -27,43 +27,53 @@ export function SelectDymich(props: SelectPropsType) {
 
     const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
 
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+            for (let i = 0; i < props.items.length; i++) {
+                if (props.items[i].value === hoveredElementValue) {
+                    const pretendentElement = e.key === "ArrowDown"
+                        ? props.items[i + 1]
+                        : props.items[i - 1]
 
-        for (let i = 0; i < props.items.length; i++) {
-            if (e.key === "ArrowDown" || "ArrowUp") {
-                const pretendentElement = e.key === "ArrowDown"
-                    ? props.items[i + 1]
-                    : props.items[i - 1]
-                if (props.items[i + 1]) {
-                    props.onChange(props.items[i].value)
-                    setHoveredElementValue(props.items[i].value)
+                    if (pretendentElement) {
+                        props.onChange(pretendentElement.value)
+                        // setHoveredElementValue(props.items[i].value)
+                        return
+                    }
                 }
-                // else {
-                //     props.onChange(props.items[0].value)
-                //     setHoveredElementValue(props.items[0].value)
-                // }
             }
-            // if (props.items[i].value === hoveredElementValue) {
-            //     if (props.items[i + 1]) {
-            //         props.onChange(props.items[i + 1].value)
-            //         setHoveredElementValue(props.items[i + 1].value)
-            //     } else {
-            //         props.onChange(props.items[0].value)
-            //         setHoveredElementValue(props.items[0].value)
-            //     }
-            // }
-            // if (e.key === "ArrowUp") {
-            //     if (props.items[i].value === hoveredElementValue) {
-            //         if (props.items[i - 1]) {
-            //             props.onChange(props.items[i - 1].value)
-            //             setHoveredElementValue(props.items[i - 1].value)
-            //         } else {
-            //             props.onChange(props.items.length)
-            //             setHoveredElementValue(props.items.length)
-            //         }
-            //     }
-            // }
-
+            if (!selectedItem) {
+                props.onChange(props.items[0].value)
+            }
         }
+        if (e.key === "Escape" || e.key === "Enter") {
+            setActive(false)
+        }
+        // if (props.items[i].value === hoveredElementValue) {
+        //     if (props.items[i + 1]) {
+        //         props.onChange(props.items[i + 1].value)
+        //         setHoveredElementValue(props.items[i + 1].value)
+        //     } else {
+        //         props.onChange(props.items[0].value)
+        //         setHoveredElementValue(props.items[0].value)
+        //     }
+        // }
+        // if (e.key === "ArrowUp") {
+        //     if (props.items[i].value === hoveredElementValue) {
+        //         if (props.items[i - 1]) {
+        //             props.onChange(props.items[i - 1].value)
+        //             setHoveredElementValue(props.items[i - 1].value)
+        //         } else {
+        //             props.onChange(props.items.length)
+        //             setHoveredElementValue(props.items.length)
+        //         }
+        //     }
+        // else {
+        //     props.onChange(props.items[0].value)
+        //     setHoveredElementValue(props.items[0].value)
+        // }
+        // }
+
+
         // for (let i = 0; i < props.items.length; i++) {
         //     if (props.items[i].value === hoveredElementValue) {
         //         setHoveredElementValue(props.items[i+1].value)
