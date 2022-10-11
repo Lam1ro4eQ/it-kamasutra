@@ -24,35 +24,15 @@ const App = () => {
             <>Article 1</>
             <Rating value={ratingValue} onClick={setRatingValue}/>
 
-            {/*<Accordion titleValue={"This is Accordon "} collapsed={collapsed}  items={[*/}
-            {/*    {title: 'Dimych', value: 1},*/}
-            {/*    {title: 'Valera', value: 2},*/}
-            {/*    {title: 'Artem', value: 3},*/}
-            {/*    {title: 'Viktor', value: 4}*/}
-            {/*]} onClick={() => {*/}
-            {/*    setCollapsed(!collapsed)*/}
-            {/*}}/>*/}
-
             <>Article 2</>
-            {/*<Rating value={0}/>*/}
-            {/*<Rating value={1}/>*/}
-            {/*<Rating value={2}/>*/}
-            {/*<Rating value={3}/>*/}
-            {/*<Rating value={4}/>*/}
-            {/*<Rating value={5}/>*/}
+
             <UnControlledOnOff onChange={SetOn}/> {on.toString()}
             <UnControlledAccordion titleValue={"This is UnControlledAccordion "}/>
             <UnControlledRating/>
             <OnOff on={on} SetOn={() => {
                 SetOn(!on)
             }}/>
-
-            {/*<Select titleValue={"This is CUstom Select "} parentValue={parentValue} setParentValue={setParentValue} items={[*/}
-            {/*    {title: 'Dimych', value: 1},*/}
-            {/*    {title: 'Valera', value: 2},*/}
-            {/*    {title: 'Artem', value: 3},*/}
-            {/*    {title: 'Viktor', value: 4}*/}
-            {/*]} />*/}
+            
             <SelectDymich  value={selectValue} onChange={setSelectValue} items={[
                 {title: 'Dimych', value: 1},
                 {title: 'Valera', value: 2},
