@@ -1,30 +1,19 @@
-import React, {useReducer, useState} from "react";
-import {actions} from "@storybook/addon-actions";
+import React, {useReducer} from "react";
+import {reduser} from "./Reduser";
 
 type AccordionPropsType = {
     titleValue: string
     collapsed?: boolean
 }
 
-type ActionType = {
-    type:string
-
-}
-
-const reduser = (state:boolean, action:ActionType) => {
-    if(action.type = "TOGGLE-COLLAPSED") {
-        return !state
-    }
-    return state
-}
-
 export function UnControlledAccordion(props: AccordionPropsType) {
     // let [collapsed, Setcollapsed] = useState(false)
-    let [collapsed, dispatch] = useReducer (reduser,false)
+    let [state, dispatch] = useReducer (reduser,{collapsed:false})
 
     return <div>
-        <AccordionTitle title={props.titleValue} Setcollapsed={()=>{Setcollapsed(!collapsed)}} />
-        {!collapsed && <AccordionBody/>}
+        {/*<AccordionTitle title={props.titleValue} Setcollapsed={()=>{Setcollapsed(!collapsed)}} />*/}
+        <AccordionTitle title={props.titleValue} Setcollapsed={()=>{dispatch({type:"TOGGLE-COLLAPSED"})}} />
+        {!state.collapsed && <AccordionBody/>}
     </div>
 }
 
