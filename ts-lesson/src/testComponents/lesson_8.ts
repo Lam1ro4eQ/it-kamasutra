@@ -2,10 +2,8 @@
 // числа (неопределённое кол-во) и возвращает их сумму (rest).
 
 export function sum(...nums: Array<number>): number {
-    // console.log(nums)
-    //...здесь пишем код.
-    // В return стоит "заглушка", чтоб typescript не ругался
-    return 123
+    console.log(nums)
+    return nums.reduce((acc,el) => acc + el)
 }
 
 
