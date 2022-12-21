@@ -16,9 +16,18 @@ export function sum(...nums: Array<number>): number {
 //  - "00", если такого треугольника не существует.
 
 export function getTriangleType(a: number,b: number,c: number): string {
-    //...здесь пишем код.
-    // В return стоит "заглушка", чтоб typescript не ругался
-    return ""
+    if (((a+b)<c) || ((b+c)<a) || ((a+c)<b)) {
+        return "00"
+    }
+    if (a==b && b==c) {
+        return "10"
+    } if (a==b || b==c || a==c ) {
+        return "01"
+    } if (a!==b && b!==c && a!==c) {
+        return "11"
+    }
+    return "get side"
+
 }
 
 
