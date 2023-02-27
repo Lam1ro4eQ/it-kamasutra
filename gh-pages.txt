@@ -1,0 +1,23 @@
+npm install gh-pages —save-dev (даже если yarn)
+
+затем в package.json под строчкой Name написать 
+"homepage": "https://ВАШ_НИКНЕЙМ.github.io/ИМЯ_ВАШЕГО_РЕПОЗИТОРИЯ",
+
+в scripts(там же в package.json) под eject написать 
+
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+
+
+затем - коммит, пуш
+
+затем npm run deploy
+
+ждем пару минут, если по ссылке что вы указали(в package.json => homepage) не открывается ваша страница, нужно:
+1. пройти в настройки репозитория(settings)
+2. в сайдбаре переходим в pages
+3.  в поле "Build and deployment" ищем подПоле Branch
+4. там выбираем gh-pages, а в след поле(справа) / (root) и тискаем save
+
+и если после этого не открывается - я хз :D
+это примерно был мой путь с gh-pages

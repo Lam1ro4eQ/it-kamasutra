@@ -54,7 +54,7 @@ function App() {
 
     function addTask(todolistID: string, title: string) {
         let newTask = {id: v1(), title: title, isDone: false};
-        setTasks({...tasks, [todolistID]: [newTask, ...tasks[todolistID]]})
+        setTasks({...tasks,[todolistID]:[newTask,...tasks[todolistID]]})
     }
 
     function changeStatus(todolistID: string, taskId: string, isDone: boolean) {
@@ -107,8 +107,6 @@ function App() {
 
 export default App;
 
-type PropsType = {
-    title: string
-}
+
 
 

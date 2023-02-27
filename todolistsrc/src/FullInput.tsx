@@ -1,16 +1,19 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import React, {ChangeEvent, KeyboardEvent, useRef, useState} from 'react';
 
 type PropsType = {
     callBack: (newTitle:string) => void
 }
 
 const FullInput = (props:PropsType) => {
-    let [title, setTitle] = useState("")
+
+    let myRef = useRef<HTMLInputElement>(null)
+
+    // let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
 
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value)
-    }
+    // const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    //     setTitle(e.currentTarget.value)
+    // }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
@@ -20,19 +23,25 @@ const FullInput = (props:PropsType) => {
     }
 
     const addTask = () => {
-        const newTitle = title.trim()
-        if (newTitle.trim() !== "") {
-            props.callBack(newTitle);
-            setTitle("");
-        } else {
-            setError("Title is required");
+        if(myRef.current) {
+            props.callBack(myRef.current.value);
         }
     }
 
+    // const addTask = () => {
+    //     // const newTitle = title.trim()
+    //     if (newTitle.trim() !== "") {
+    //         props.callBack(newTitle);
+    //         setTitle("");
+    //     } else {
+    //         setError("Title is required");
+    //     }
+    // }
+
     return (
         <div>
-            <input value={title}
-                   onChange={onChangeHandler}
+            <input
+                   ref={myRef}
                    onKeyPress={onKeyPressHandler}
                    className={error ? "error" : ""}
             />

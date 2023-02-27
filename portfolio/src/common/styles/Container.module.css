@@ -1,0 +1,9 @@
+.container {
+    width: 80%;
+    height: 100%;
+    background-color: #6cb95b;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

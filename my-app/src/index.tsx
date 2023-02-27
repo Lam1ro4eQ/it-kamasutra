@@ -1,19 +1,47 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { ChangeEvent, useState } from 'react';
+import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+function LongCommentChecker() {
+    const minSizeComment = 5
+    const [isCommentReady, setIsCommentReady] = useState<boolean>(false)
+    const [comment, setComment] = useState<string>('')
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    const onClickSendComment = () => {
+        if (comment.length > minSizeComment) {
+            setComment('')
+        }
+    }
+    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        const newComment = e.currentTarget.value
+        if (newComment.length > minSizeComment) {
+            setIsCommentReady(true)
+        } else {
+            setIsCommentReady(false)
+        }
+        setComment(newComment)
+    }
+
+    return (
+        <main>
+            <textarea
+                placeholder={'Your comment must have more than 5 charters'}
+                value={comment}
+                onChange={onChangeHandler}
+            />
+            <div>
+                <button
+                    disabled={isCommentReady}
+                    onClick={onClickSendComment}>
+                    Send comment
+                </button>
+            </div>
+        </main>
+    )
+}
+
+ReactDOM.render(<LongCommentChecker/>, document.getElementById('root'));
+
+// Что нужно написать вместо XXX, чтобы кнопка отправки комментария отрабатывала верно:
+// первоначально кнопка должна быть в состоянии disable, а после успешного выполнения условия
+// (проверка на длину комментария) должна раздизаблиться.
