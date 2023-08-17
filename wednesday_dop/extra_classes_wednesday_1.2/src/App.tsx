@@ -34,7 +34,7 @@ export const App = () => {
 
   const handleClick = useCallback((): void => {
     dispatch(createUser({id: v1(), name: generateRandomName()}));
-
+    // dispatch(createUserAC())
     setIsAddNewUser(true);
   }, [dispatch]);
 
