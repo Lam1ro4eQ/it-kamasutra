@@ -1,34 +1,59 @@
-type Status = 'Stopped' | 'Playing' | 'Paused'
-type StateType = {
-    volume: number // in percents
-    trackUrl: string // 'https://blabla.com/track01.mp3',
-    currentPlayPosition: number // milliseconds,
-    status: Status
+import React, {useMemo, useState} from 'react'
+import ReactDOM from 'react-dom'
+
+type ButtonType = {
+    id: number
+    title: string
+    forAdminOnly: boolean
 }
-export const playerReducer = (state: StateType, action: any) => {
-    switch (action.type) {
-        case 'TRACK-VOLUME-CHANGED':
-            return {
-                ...state,
-                XXX
-            }
-        default:
-            return state
-    }
+const buttons: ButtonType[] = [
+    {id: 1, title: 'delete', forAdminOnly: true},
+    {id: 2, title: 'update', forAdminOnly: true},
+    {id: 3, title: 'create', forAdminOnly: false},
+]
+
+export const App = ({isAdmin}: { isAdmin: boolean }) => {
+
+    const [seconds, setSeconds] = useState(0)
+
+    const increaseSeconds = () => setSeconds(seconds + 10)
+
+    const correctButtons = useMemo(() => {
+        return buttons.filter(b => isAdmin ? true : !b.forAdminOnly)
+    }, [isAdmin])
+
+    return <>
+        <ButtonsPanel buttons={correctButtons}/>
+        <div>
+            <p>
+                <b>Секунды: {seconds}</b>
+            </p>
+            <button onClick={increaseSeconds}>
+                Увеличить на 10 секунд
+            </button>
+        </div>
+    </>
 }
 
-const muteTrackAC = () => ({type: 'TRACK-MUTED'})
-const changeVolumeAC = (volumeLevel: number) => ({type: 'TRACK-VOLUME-CHANGED', volumeLevel})
-const changeTrackAC = (url: string) => ({type: 'TRACK-URL-CHANGED', url})
-const changeTrackPlayStatusAC = (status: Status) => ({type: 'TRACK-STATUS-CHANGED', status})
+const ButtonsPanel = React.memo((props: { buttons: Array<ButtonType> }) => {
+    console.log('Render ButtonsPanel')
+    return (
+        <div style={{marginBottom: '15px'}}>
+            <div style={{marginBottom: '15px'}}>
+                <b>Панель с кнопками</b>
+            </div>
+            <div>
+                {props.buttons.map(b => <button key={b.id}>{b.title}</button>)}
+            </div>
+        </div>
+    )
+})
 
-const state: StateType = {
-    status: 'Stopped',
-    currentPlayPosition: 1213,
-    trackUrl: 'https://blabla.com/track01.mp3',
-    volume: 100
-}
-const newState = playerReducer(state, changeVolumeAC(20))
-console.log(newState.volume === 20)
+ReactDOM.render(<App isAdmin={true}/>, document.getElementById('root'))
 
-// Напишите вместо XXX правильную строку кода, чтобы изменить громкость трека и увидеть в консоли true.
+// Что нужно написать вместо XXX и YYY,
+// чтобы избавиться от лишнего перерендера компонента ButtonsPanel
+// при нажатии на кнопку "Увеличить на 10 секунд" ?
+
+// Ответ дайте через пробел: 111 222
+

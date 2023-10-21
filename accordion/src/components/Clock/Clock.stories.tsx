@@ -11,7 +11,12 @@ export default {
 
 
 
-export const ClockChanging = () => {
+export const DigitalClock = () => {
 
-    return <Clock />
+    return <Clock mode={'digital'}/>
+}
+
+export const AnalogClock = () => {
+
+    return <Clock mode={'analog'}/>
 }
