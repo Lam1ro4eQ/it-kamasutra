@@ -62,10 +62,13 @@ export const ExampleSetInterval = () => {
 
     useEffect(() => {
 
-        setTimeout(() => {
+        const timeoutId = setTimeout(() => {
             console.log("setinterval")
             setCounter(counter + 1)
         }, 1000)
+        return () => {
+            clearTimeout(timeoutId)
+        }
     }, [counter]) // или не ставить зависимость а - setCounter((state)=>{state + 1}) там замыкание и counter = 1
 
 
