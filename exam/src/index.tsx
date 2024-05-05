@@ -1,48 +1,67 @@
-import React, { useCallback, useState } from 'react'
+import React from 'react'
+import { createStore } from 'redux'
+import { Provider, useSelector, useDispatch } from 'react-redux'
 import ReactDOM from 'react-dom'
 
-export const App = () => {
-    const [temp, setTemp] = useState(100)
-    const [seconds, setSeconds] = useState(0)
-
-    const resetTemp = useCallback(() => setTemp(0), [])
-
-    const incSec = useCallback(() => setSeconds(seconds + 1), [seconds])
-
-    return <>
-        <TempDisplay temp={temp} resetTemp={resetTemp}/>
-        <SecDisplay seconds={seconds} incSec={incSec}/>
-    </>
+type StudentType = {
+    id: number
+    name: string
+    age: number
 }
-const TempDisplay = React.memo((props: any) => {
-    console.log('Render TempDisplay')
+
+const initState = {
+    students:
+        [
+            {id: 1, name: 'Bob', age: 23},
+            {id: 2, name: 'Alex', age: 22}
+        ] as Array<StudentType>
+}
+type AddStudentAT = {
+    type: 'ADD-STUDENT'
+    name: string
+    age: number
+    id: number
+}
+
+type InitialStateType = typeof initState
+
+const studentsReducer = (state: InitialStateType = initState, action: AddStudentAT): InitialStateType => {
+    switch (action.type) {
+        case 'ADD-STUDENT':
+            return {
+                ...state,
+                students: [...state.students, {
+                    name: action.name,
+                    age: action.age,
+                    id: action.id
+                }]
+            }
+    }
+    return state
+}
+
+const appStore = createStore(studentsReducer)
+type RootStateType = ReturnType<typeof studentsReducer>
+
+
+const StudentList = () => {
+    const students = useSelector((state: RootStateType) => state.students)
     return (
-        <div style={{marginBottom: '10px'}} onClick={props.reset}>
-            <p>
-                <b>Температура: </b>{props.temp} &#176;
-            </p>
-            <button onClick={props.resetTemp}>Сбросить температуру к 0</button>
-        </div>
+        <ul>
+            {students.map(s => <li key={s.id}>{`${s.name}. ${s.age} years.`}</li>)}
+        </ul>
     )
-})
+}
+const App = () => {
+    return <StudentList/>
+}
 
-const SecDisplay = React.memo((props: any) => {
-    console.log('Render SecDisplay')
-    return (
-        <div>
-            <p><b>Секунды:</b> {props.seconds} c </p>
-            <button style={{marginRight: '20px'}}
-                    onClick={props.incSec}>
-                Увеличить время на 1 секунду
-            </button>
-        </div>
-    )
-})
+ReactDOM.render(<div>
+        <XXX YYY={ZZZ}>
+            <App/>
+        </XXX>
+    </div>,
+    document.getElementById('root')
+)
 
-ReactDOM.render(<App/>, document.getElementById('root'))
-
-// Почему не корректно работает счетчик времени при нажатии на кнопку (срабатывает только 1 раз) ?
-// Найдите в чем причина.
-// Исправленную версию строки напишите в качестве ответа
-
-// Пример ответа: const incSec = () => setSeconds(seconds + 1)
+// Что нужно написать вместо XXX, YYY и ZZZ, чтобы отобразился список студентов?
