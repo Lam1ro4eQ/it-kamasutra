@@ -1,25 +1,65 @@
 <script>
-  let axios = {
-    get() {
-      let pr = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve('123');
-        }, 3000);
-      });
-      return pr
-    },
-  };
+    let axios = {
+        get() {
+            let pr = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve({
+                        g: 3,
+                        g2: '123123',
+                        message: 'yoyoyo'
+                    });
+                }, 3000);
+            });
+            return pr
+        },
+    };
 
-  axios.get()
-  .then(data => console.log(data))
-  .catch(()=>console.error(data));
+    axios.get()
+        .then(data => console.log(data.message))
+        .catch(() => console.error(data))
+        .then((message) => {
+            console.log(message)
+        })
 
 
+    let fetch = (url) => {
+        return new Promise((res, rej) => { //XMLHttpRequest  XHR
+            switch (url) {
+                case 'google' : {
+                    setTimeout(() => {
+                        res({data: 'from google'})
+                    }, 3000)
+                    break;
+                }
+                case 'microsoft': {
+                    setTimeout(() => {
+                        res({data: 'from microsoft'})
+                    }, 1000)
+                    break;
+                }
+                case 'it-kamasutra': {
+                    setTimeout(() => {
+                        res({data: 'from it-kamasutra'})
+                    }, 500)
+                    break;
+                }
+            }
+        })
+    }
+    // fetch('microsoft').then(data=>console.log(data))
+    // fetch('google').then(data=>console.log(data))
+    // fetch('it-kamasutra').then(data=>console.log(data))
 
-
-
-
-
+    fetch('google')
+        .then(data => {
+            console.log(data)
+            return fetch('microsoft')
+        })
+        .then(data => {
+            console.log(data)
+            return fetch('it-kamasutra')
+        })
+        .then(data => console.log(data))
 
 
 </script>

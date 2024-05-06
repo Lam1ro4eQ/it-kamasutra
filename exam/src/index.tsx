@@ -57,9 +57,9 @@ const App = () => {
 }
 
 ReactDOM.render(<div>
-        <XXX YYY={ZZZ}>
+        <Student store={appStore}>
             <App/>
-        </XXX>
+        </Student>
     </div>,
     document.getElementById('root')
 )
