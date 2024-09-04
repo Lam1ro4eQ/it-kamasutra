@@ -1,67 +1,96 @@
-import React from 'react'
-import { createStore } from 'redux'
-import { Provider, useSelector, useDispatch } from 'react-redux'
-import ReactDOM from 'react-dom'
+import axios from "axios";
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom/client";
+import { Provider, TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { ThunkDispatch } from "redux-thunk";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
-type StudentType = {
-    id: number
-    name: string
-    age: number
-}
+// Types
+type CommentType = {
+    postId: string;
+    id: string;
+    name: string;
+    email: string;
+    body: string;
+};
 
-const initState = {
-    students:
-        [
-            {id: 1, name: 'Bob', age: 23},
-            {id: 2, name: 'Alex', age: 22}
-        ] as Array<StudentType>
-}
-type AddStudentAT = {
-    type: 'ADD-STUDENT'
-    name: string
-    age: number
-    id: number
-}
+// Api
+const instance = axios.create({ baseURL: "https://exams-frontend.kimitsu.it-incubator.io/api/" });
 
-type InitialStateType = typeof initState
+const commentsAPI = {
+    getComments() {
+        return instance.get<CommentType[]>("comments");
+    },
+};
 
-const studentsReducer = (state: InitialStateType = initState, action: AddStudentAT): InitialStateType => {
+// Reducer
+const initState = [] as CommentType[];
+
+type InitStateType = typeof initState;
+
+const commentsReducer = (state: InitStateType = initState, action: ActionsType): InitStateType => {
     switch (action.type) {
-        case 'ADD-STUDENT':
-            return {
-                ...state,
-                students: [...state.students, {
-                    name: action.name,
-                    age: action.age,
-                    id: action.id
-                }]
-            }
+        case "COMMENTS/GET-COMMENTS":
+            return action.comments;
+        default:
+            return state;
     }
-    return state
-}
+};
 
-const appStore = createStore(studentsReducer)
-type RootStateType = ReturnType<typeof studentsReducer>
+const getCommentsAC = (comments: CommentType[]) =>
+    ({ type: "COMMENTS/GET-COMMENTS", comments }) as const;
+type ActionsType = ReturnType<typeof getCommentsAC>;
 
+const getCommentsTC = () => (dispatch: DispatchType) => {
+    commentsAPI.getComments().then((res) => {
+        dispatch(getCommentsAC(res.data));
+    });
+};
 
-const StudentList = () => {
-    const students = useSelector((state: RootStateType) => state.students)
+// Store
+const rootReducer = combineReducers({
+    comments: commentsReducer,
+});
+
+const store = configureStore({ reducer: rootReducer });
+type RootState = ReturnType<typeof rootReducer>;
+type DispatchType = ThunkDispatch<any, any, any>;
+const useAppDispatch = () => useDispatch<DispatchType>();
+const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+// App
+export const App = () => {
+    const comments = useAppSelector((state) => state.comments);
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(getCommentsTC());
+    }, []);
+
     return (
-        <ul>
-            {students.map(s => <li key={s.id}>{`${s.name}. ${s.age} years.`}</li>)}
-        </ul>
-    )
-}
-const App = () => {
-    return <StudentList/>
-}
+        <>
+            <h1>📝 Список комментариев</h1>
+            {comments.map((c) => {
+                return (
+                    <div key={c.id}>
+                        <b>Comment</b>: {c.body}{" "}
+                    </div>
+                );
+            })}
+        </>
+    );
+};
 
-ReactDOM.render(<div>
-        <Student store={appStore}>
-            <App/>
-        </Student>
-    </div>,
-    document.getElementById('root')
-)
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+root.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+);
 
-// Что нужно написать вместо XXX, YYY и ZZZ, чтобы отобразился список студентов?
+// 📜 Описание:
+// Ваша задача стоит в том чтобы правильно передать нужные типы в дженериковый тип ThunkDispatch<any, any, any>.
+// Что нужно написать вместо any, any, any чтобы правильно типизировать dispatch ?
+// Ответ дайте через пробел
+
+// 🖥 Пример ответа: unknown status isDone

@@ -50,16 +50,33 @@
     // fetch('google').then(data=>console.log(data))
     // fetch('it-kamasutra').then(data=>console.log(data))
 
-    fetch('google')
-        .then(data => {
-            console.log(data)
-            return fetch('microsoft')
-        })
-        .then(data => {
-            console.log(data)
-            return fetch('it-kamasutra')
-        })
-        .then(data => console.log(data))
+    // fetch('google')
+    //     .then(data => {
+    //         console.log(data)
+    //         return fetch('microsoft')
+    //     })
+    //     .then(data => {
+    //         console.log(data)
+    //         return fetch('it-kamasutra')
+    //     })
+    //     .then(data => console.log(data))
 
+    let makeRequests = async () => {
+        let data = await fetch('google');
+        console.log(data);
+        data = await fetch('microsoft');
+        console.log(data);
+        data = await fetch('it-kamasutra');
+        console.log(data);
+
+    }
+    let makeRequestMult = async () => {
+        let promises = [fetch('microsoft'), fetch('google'), fetch('it-kamasutra')]
+
+        let data = await Promise.all(promises)
+        console.log(data)
+    }
+    makeRequestMult()
+    
 
 </script>
