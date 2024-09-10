@@ -94,22 +94,25 @@ body {
 
 .main__text {
   flex-basis: 490px;
+  
 }
 
 .main__title {
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 1.2;
+  letter-spacing: 1.9rem;
+  font-size: 150px;
+  font-weight: 900;
+  
   margin-top: 0;
   margin-bottom: 10px;
 }
 
 .main__desc {
-  font-size: 20px;
+  font-size: 100px;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: .2rem;
   margin-top: 0;
   margin-bottom: 42px;
+  font-weight: 700;
 }
 
 .main__btn {
@@ -178,9 +181,32 @@ body {
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
   margin: 0 auto;
-  max-width: 420px;
+  
   line-height: 1.5;
 }
+.desc__title {
+  font-size: 30px;
+  
+  text-align: center;
+  margin: 20px auto 20px;
+
+  line-height: 1.5;
+}
+
+.markers {
+	list-style-type: none;
+  padding: 0;
+}
+.markers li {
+  padding: 0 0 0 25px;
+  background: url(/images/check_small_16dp.png) no-repeat left 5px top 5px / 10px 10px
+}
+
+
+
+
+
+
 
 .card {
   display: flex;
