@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider, TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { ThunkDispatch } from "redux-thunk";
+import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
 // Types
@@ -41,7 +41,7 @@ const getCommentsAC = (comments: CommentType[]) =>
     ({ type: "COMMENTS/GET-COMMENTS", comments }) as const;
 type ActionsType = ReturnType<typeof getCommentsAC>;
 
-const getCommentsTC = () => (dispatch: DispatchType) => {
+const getCommentsTC = (): ThunkAction<void, RootState, unknown, ActionsType> => (dispatch) => {
     commentsAPI.getComments().then((res) => {
         dispatch(getCommentsAC(res.data));
     });
@@ -53,9 +53,9 @@ const rootReducer = combineReducers({
 });
 
 const store = configureStore({ reducer: rootReducer });
-type RootState = ReturnType<typeof rootReducer>;
-type DispatchType = ThunkDispatch<any, any, any>;
-const useAppDispatch = () => useDispatch<DispatchType>();
+type RootState = ReturnType<typeof store.getState>;
+type AppDispatch = ThunkDispatch<RootState, unknown, ActionsType>;
+const useAppDispatch = () => useDispatch<AppDispatch>();
 const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 // App
@@ -89,8 +89,8 @@ root.render(
 );
 
 // 📜 Описание:
-// Ваша задача стоит в том чтобы правильно передать нужные типы в дженериковый тип ThunkDispatch<any, any, any>.
-// Что нужно написать вместо any, any, any чтобы правильно типизировать dispatch ?
+// Ваша задача стоит в том чтобы правильно передать нужные типы в дженериковый тип ThunkAction<any, any, any, any>.
+// Что нужно написать вместо any, any, any, any чтобы правильно типизировать thunk creator?
 // Ответ дайте через пробел
 
-// 🖥 Пример ответа: unknown status isDone
+// 🖥 Пример ответа: unknown status isDone void

@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALL IN  ONE FINANCE</title>
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="/assets/img/logo_lambard.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+         
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+</head>
+
+<body>
+    <div class="modal fade" id="price-form" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">
+                        Получить консультацию
+                    </h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="response" style="color: #fff; font-size: 23px; text-align: center; margin: 0 0 20px"></p>
+                    <form  method="post" id="mail_sender2" name="sendmail" action="/mail/mail.php">
+                        <div class="row">
+                            <div class="col-12">
+                                <input required type="text" name="name" class="effect" placeholder="Ваше имя" />
+                            </div>
+                            <div class="col-12">
+                                <input required type="number" name="phone" class="effect" placeholder="Номер телефона" />
+                            </div>
+
+                            <!-- <div class="col-12">
+                                <textarea rows="6" name="question" class="effect" placeholder="Сообщение"></textarea>
+                            </div> -->
+                            <div class="col-12">
+                                <input class="btn submit-btn" type="submit" name="submit2" value="Отправить" />
+                            </div>
+                        </div>
+                    </form>
+                    <script>
+                            $(document).ready(function() {
+                                $('#mail_sender2').on('submit', function(e) {
+                                    e.preventDefault();
+                    
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '/mail/mail.php',
+                                        data: $(this).serialize(),
+                                        success: function(response) {
+                                            $('#response').html(response);
+                                        },
+                                        error: function() {
+                                            $('#response').html('An error occurred.');
+                                        }
+                                    });
+                                });
+                                                });
+                        </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg modal-service" id="service-1" tabindex="-1"
+        aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">
+                        Кредит бизнесу под залог недвижимости
+                        Быстрое решение и онлайн оформление займов под залог любого
+                        вида недвижимости.
+                    </h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="loan-conditions">
+                        <h2>Условия</h2>
+                        <ul>
+                            <li>Аналитика по Вашему предприятию и кредитной истории <strong>бесплатно</strong></li>
+                            <li>Процентная ставка - <strong>от 20% годовых</strong></li>
+                            <li>Более <strong>90%</strong> заявок получают кредит</li>
+                            <li>Более <strong>1 млрд</strong> полученных кредитов</li>
+                        </ul>
+                    </div>
+
+                    <div class="loan-description">
+                        <h2>Описание</h2>
+                        <p>Наша компания оказывает компетентную профессиональную помощь в получении потребительских кредитов.
+
+                            Мы подберём для Вас лучшие предложения банков по потребительским кредитам, а также поможем с оформлением.
+                            
+                            Мы работаем без предоплаты и всегда нацелены на положительный результат кредитной сделки.
+                            
+                        </p>
+                        <p>Мы поможем даже если:</p>
+                        <ul>
+                            <li>Вы уже получили несколько отказов</li>
+                            <li>У вас нет залога и поручителей</li>
+                            <li>Вашего официального дохода недостаточно</li>
+                        </ul>
+                    </div>
+
+                    <div class="why-us">
+                        <h2>Почему с нами шансы на одобрение кредита значительно выше?</h2>
+                        <ol>
+                            <li>Имеем тесные связи с банками-партнерами</li>
+                            <li>Понимаем неочевидные причины отказа</li>
+                            <li>Знаем текущую внутреннюю кредитную политику банков-партнеров в отношении МСП</li>
+                            <li>Знаем, какой банк прямо сейчас одобрит кредит с высокой вероятностью, а какой откажет
+                            </li>
+                            <li>Поможем даже если у Вас один или несколько кредитов</li>
+                        </ol>
+                    </div>
+
+                    <div class="borrower-requirements">
+                        <h2>Какие требования к заемщику?</h2>
+                        <ul>
+                            <li>Гражданство Российской Федерации.</li>
+                            <li>Возраст от 21 до 75 лет (включительно) на момент полного погашения.</li>
+                            <li>Регистрация по месту жительства на территории Российской Федерации.</li>
+                            <li>Отсутствие судебных разбирательств, неснятой/непогашенной судимости.</li>
+                            <li>Отсутствие процедуры банкротства в течение 5 лет перед подачей заявления на получение
+                                займа.</li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="cta">
+                        <h3>Хотите узнать более подробную информацию?</h3>
+                        <p>Оставьте заявку, и наш менеджер свяжется с Вами в ближайшее время.</p>
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg modal-service" id="service-2" tabindex="-1"
+        aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">
+                        Кредит бизнесу под залог недвижимости.
+                        Быстрое решение и онлайн оформление займов под залог любого
+                        вида недвижимости.
+                    </h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="loan-conditions">
+                        <h2>Условия</h2>
+                        <ul>
+                            <li>Любая кредитная история</li>
+                            <li>Возможная сумма займа - до <strong>200 000 000 рублей</strong></li>
+                            <li>Процентная ставка - <strong>от 25% </strong>годовых</li>
+                            <li>Досрочное погашение без штрафов и комиссий</li>
+                        </ul>
+                    </div>
+
+                    <div class="loan-description">
+                        <h2>Описание</h2>
+                        <p>Поможем получить инвестиции в бизнес под залог коммерческой или иной недвижимости на самых
+                            выгодных условиях благодаря сотрудничеству с 20 крупными банками и 500 инвестиционными
+                            компаниями и частными инвесторами.</p>
+                        <p>Вы ничем не рискуете - недвижимость останется в вашей собственности в соответствии с №102-ФЗ
+                            "Об ипотеке (залоге недвижимости)"</p>
+                    </div>
+
+                    <div class="property-requirements">
+                        <h2>Требования к объекту недвижимости:</h2>
+                        <ul>
+                            <li>Высокая ликвидность</li>
+                            <li>Нахождение вблизи города</li>
+                            <li>Отсутствие обременений</li>
+                            <li>Степень износа не более 70%</li>
+                        </ul>
+                    </div>
+
+                    <div class="collateral-objects">
+                        <h2>Объекты залога:</h2>
+                        <ul>
+                            <li>Торговый объект</li>
+                            <li>Офисное помещение</li>
+                            <li>Производственные площади</li>
+                            <li>Здание свободного назначения</li>
+                            <li>Гостиница</li>
+                            <li>Жилая недвижимость (квартиры, дома)</li>
+                        </ul>
+                    </div>
+
+                    <div class="borrower-requirements">
+                        <h2>Требования к заемщику:</h2>
+                        <ul>
+                            <li>Гражданство Российской Федерации.</li>
+                            <li>Возраст от 21 до 75 лет (включительно) на момент полного погашения.</li>
+                            <li>Регистрация по месту жительства на территории Российской Федерации.</li>
+                            <li>Отсутствие судебных разбирательств, неснятой/непогашенной судимости.</li>
+                            <li>Отсутствие процедуры банкротства в течение 5 лет перед подачей заявления на получение
+                                инвестиций.</li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="cta">
+                        <h3>Хотите узнать более подробную информацию?</h3>
+                        <p>Оставьте заявку, и наш менеджер свяжется с Вами в ближайшее время.</p>
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg modal-service" id="service-3" tabindex="-1"
+        aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">
+                        Бизнес - ипотека<br><br>
+                        Кредитование юридических лиц под залог приобретаемой
+                        недвижимости (жилой и коммерческой).
+
+                    </h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="loan-conditions">
+                        <h2>Условия</h2>
+                        <ul>
+                            <li>Процентная ставка - от <strong>25%</strong></li>
+                            <li>Сумма кредита - до <strong>150 000 000 рублей</strong></li>
+                            <li>Срок кредита - до <strong>10 лет</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="loan-description">
+                        <h2>Описание</h2>
+                        <p>Поможем получить ипотеку для покупки коммерческой или жилой недвижимости. Теперь получить
+                            бизнес-ипотеку малому бизнесу проще:</p>
+                        <ul>
+                            <li>Бумажные документы не нужны</li>
+                            <li>Страхование не обязательно</li>
+                            <li>Если решите застраховать бизнес, по ипотеке будет скидка <strong>5%</strong></li>
+                            <li>Быстро рассмотрим заявку</li>
+                            <li>Первоначальный взнос — не обязателен</li>
+                            <li>Оформите, даже если нет накоплений</li>
+                        </ul>
+                    </div>
+
+                    <div class="property-types">
+                        <h2>Какую недвижимость можно купить</h2>
+                        <h3>Коммерческая:</h3>
+                        <ul>
+                            <li>Офисная</li>
+                            <li>Торговая</li>
+                            <li>Складская</li>
+                            <li>Производственная</li>
+                        </ul>
+                        <h3>Жилая:</h3>
+                        <ul>
+                            <li>Квартиры</li>
+                            <li>Дома</li>
+                            <li>Коттеджи</li>
+                        </ul>
+                    </div>
+
+                    <div class="borrower-requirements">
+                        <h2>Требования к заемщику:</h2>
+                        <ul>
+                            <li>Гражданство Российской Федерации.</li>
+                            <li>Юридическое лицо (ИП/ООО).</li>
+                            <li>Срок ведения бизнеса и регистрации заёмщика от 9 месяцев на дату подачи заявки.</li>
+                            <li>Суммарная доля участия РФ, субъектов РФ, муниципальных образований, нерезидентов,
+                                общественных и религиозных организаций, благотворительных и иных фондов в уставном
+                                капитале предприятия — не более 25%.</li>
+                            <li>Возраст не менее 18 лет.</li>
+                        </ul>
+                    </div>
+
+                    <div class="collateral-requirements">
+                        <h2>Требования к залогу:</h2>
+                        <ul>
+                            <li>Кредит предоставляется под залог жилой или коммерческой недвижимости.</li>
+                            <li>Недвижимость должна находиться на территории РФ без ограничений на доступ к объекту
+                                - ЗАТО, режимный объект и т.д.</li>
+                            <li>Полный комплект документов, подтверждающих право собственности.</li>
+                            <li>Недвижимость не обременена ипотекой других банков.</li>
+                            <li>Без других существенных обременений и особенностей.</li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="cta">
+                        <h3>Хотите узнать более подробную информацию?</h3>
+                        <p>Оставьте заявку, и наш менеджер свяжется с Вами в ближайшее время.</p>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg modal-service" id="service-4" tabindex="-1"
+        aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">
+                        Лизинг<br><br>
+                        Поможем получить лизинг на недвижимость, новые
+                        автомобили или технику без аванса и переплат для юридических лиц и
+                        ИП.
+
+                    </h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="leasing-conditions">
+                        <!-- <h2>Лизинг недвижимости</h2> -->
+                        <h3>Условия</h3>
+                        <ul>
+                            <li>Сумма сделки - от <strong>10 000 000 до 150 000 000 рублей</strong></li>
+                            <li>Срок лизинга - от <strong>3</strong> до <strong>15</strong> лет</li>
+                            <li>Срок решения по сделке - от <strong>14</strong> до <strong>30 рабочих дней</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="leasing-description">
+                        <h3>Описание</h3>
+                        <p>Лизинг позволяет бизнесменам, у которых нет полной суммы для приобретения нужного объекта, получить недвижимость/технику/транспорт для ведения бизнеса или личных потребностей без оформления кредита в банке.</p>
+                    </div>
+
+                    <div class="leasing-advantages">
+                        <h3>Преимущества лизинга</h3>
+                        <ul>
+                            <li>Долгосрочное финансирование</li>
+                            <li>Процентная ставка по лизингу меньше или равна процентной ставке по кредиту</li>
+                            <li>Экономия за счёт налоговых вычетов по лизингу</li>
+                            <li>Гарантированное возмещение НДС от сделки купли-продажи</li>
+                            <li>Не нужно выполнять требования по заявительному порядку возмещению НДС, предъявляемых
+                                налоговым органом к вновь созданным юридическим лицам (НК РФ Статья 176.1)</li>
+                            <li>Возможность составления индивидуального графика лизинговых платежей с учетом выручки от
+                                арендаторов, что дает возможность налогового планирования и оптимизации</li>
+                            <li>Подготовка договорной базы и сопровождение</li>
+                        </ul>
+                    </div>
+
+                    <div class="collateral-objects">
+                        <h3>Объекты залога:</h3>
+                        <ul>
+                            <li>Недвижимость</li>
+                            <li>Легковые автомобили</li>
+                            <li>Лизинг такси</li>
+                            <li>Коммерческий транспорт</li>
+                            <li>Грузовой транспорт</li>
+                            <li>Специальная техника</li>
+                            <li>Строительная техника</li>
+                            <li>Подвижной состав</li>
+                            <li>Оборудование</li>
+                        </ul>
+                    </div>
+
+                    <div class="lessee-requirements">
+                        <h3>Требования к лизингополучателю:</h3>
+                        <ul>
+                            <li>Зарегистрированное юридическое лицо или ИП</li>
+                            <li>Лизингополучатель резидент РФ</li>
+                            <li>Наличие действующего бизнеса</li>
+                            <li>Действует не менее 1 года</li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="cta">
+                        <h3>Хотите узнать более подробную информацию?</h3>
+                        <p>Оставьте заявку, и наш менеджер свяжется с Вами в ближайшее время.</p>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg modal-service" id="service-5" tabindex="-1"
+        aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">
+                        Рефинансирование для бизнеса <br><br>
+                        Объедините действующие кредиты и займы — уменьшите платежи
+                        и процентную ставку,
+                        увеличьте срок, получите дополнительные средства.
+
+                    </h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="refinancing-description">
+                        <h2>Описание</h2>
+                        <p>Поможем рефинансировать ваши кредиты под залог недвижимости на выгодных для Вас условиях.
+                            Работаем с юридическими лицами, индивидуальными предпринимателями (ИП).</p>
+                        <p>Рассмотрим любой вид недвижимости в залог:</p>
+                        <ul>
+                            <li>Квартира</li>
+                            <li>Дом</li>
+                            <li>Участок</li>
+                            <li>Таунхаус</li>
+                            <li>Коммерческая</li>
+                            <li>Производственная</li>
+                        </ul>
+                    </div>
+
+                    <div class="refinancing-conditions">
+                        <h2>Условия</h2>
+                        <ul>
+                            <li>Процентная ставка в месяц - <strong>от 25%</strong>годовых</li>
+                            <li>Срок займа - до <strong>30 лет</strong> с пролонгацией</li>
+                            <li>Сумма займа - от <strong>1 000 000 до 150 000 000 рублей</strong> до <strong>150 000 000 рублей</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="borrower-requirements">
+                        <h2>Требования к заёмщику</h2>
+                        <ul>
+                            <li>Наличие недвижимости под залог</li>
+                            <li>Возраст от 18 лет до 85 лет</li>
+                            <li>Гражданство Российской Федерации</li>
+                        </ul>
+                    </div>
+
+                    <div class="property-requirements">
+                        <h2>Требования к недвижимости</h2>
+                        <ul>
+                            <li>Отсутствие ареста</li>
+                            <li>Куплена без материнского капитала</li>
+                            <li>Возможен залог третьих лиц</li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="cta">
+                        <h3>Хотите узнать более подробную информацию?</h3>
+                        <a href="#contact" data-bs-dismiss="modal" aria-label="Close">Оставьте заявку, и наш менеджер
+                            свяжется с Вами в ближайшее время.</a>
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed__socials">
+        <ul class="fixed-icon-wrapper">
+            <!-- phone -->
+            <li class="fixed-icon__item bg">
+                <a href="tel:+79384660013">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1.531 1.531"
+                        xml:space="preserve">
+                        <path fill="currentColor"
+                            d="M1.321.774h-.078A.46.46 0 0 0 .781.312V.234a.54.54 0 0 1 .54.54M.781.368v.078a.33.33 0 0 1 .327.327h.078A.406.406 0 0 0 .781.368M.766 0a.766.766 0 0 0 0 1.532.047.047 0 0 0 0-.095.672.672 0 1 1 .671-.671.43.43 0 0 1-.2.373.3.3 0 0 1-.139.036.2.2 0 0 0 .075-.072q.007-.008.011-.017c.015-.037.017-.079.026-.118C1.221.918.992.821.972.883.965.906.954.979.939.998.926 1.015.894 1.007.874.99.822.945.763.88.712.828L.708.824.704.82C.652.769.587.71.542.658.525.638.517.606.534.593.553.578.626.568.649.56.711.54.614.31.564.322.525.331.483.333.446.348L.429.359C.298.442.281.644.409.795a4 4 0 0 0 .152.168l.004.004.004.004c.054.052.119.13.224.199.22.147.39.106.489.051.172-.095.249-.297.249-.456A.766.766 0 0 0 .766 0" />
+                    </svg>
+                </a>
+            </li>
+
+            <!-- telegram -->
+            <li class="fixed-icon__item">
+                <a href="https://t.me/+79384660013">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 11.908 11.908"
+                        xml:space="preserve">
+                        <path fill="#039be5" data-original="#039be5"
+                            d="M11.908 5.954a5.954 5.954 0 0 1-5.954 5.954A5.954 5.954 0 0 1 0 5.954a5.954 5.954 0 0 1 11.908 0" />
+                        <path fill="#fff"
+                            d="m2.723 5.822 5.74-2.215c.264-.092.498.061.417.467l-.976 4.603q-.111.487-.538.254L5.883 7.833l-.722.691c-.081.082-.142.142-.305.142l.102-1.514 2.753-2.489c.122-.101-.03-.162-.182-.061L4.125 6.746l-1.473-.457c-.315-.102-.325-.315.071-.477"
+                            data-original="#ffffff" />
+                    </svg>
+                </a>
+            </li>
+            <!-- mail -->
+            <li class="fixed-icon__item bg">
+                <a href="mailto:aio.fin@mail.ru">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35"
+                        xml:space="preserve">
+                        <path fill="currentColor"
+                            d="M31.719 4.375H3.281A3.28 3.28 0 0 0 0 7.656v19.688a3.28 3.28 0 0 0 3.281 3.281h28.438A3.28 3.28 0 0 0 35 27.344V7.656a3.28 3.28 0 0 0-3.281-3.281m-3.863 2.188L17.5 14.739 7.144 6.563zm2.769 21.875H4.375V10.163L17.5 20.258l13.125-10.097z"
+                            data-original="#000000" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+
+        <div class="fixed__open-close-icon-wrapper fixed-icon__item">
+            <!-- <svg
+          class="fixed__socials__open"
+          xmlns="http://www.w3.org/2000/svg"
+          width="35"
+          height="35"
+          viewBox="0 0 1.641 1.641"
+          xml:space="preserve"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M.271 1.113a.05.05 0 0 1 0-.072L.784.528a.05.05 0 0 1 .072 0l.513.513a.051.051 0 1 1-.072.072L.82.636l-.476.476a.05.05 0 0 1-.072 0"
+            clip-rule="evenodd"
+          />
+        </svg> -->
+
+            <svg class="fixed__socials__open" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                viewBox="0 0 35 35" xml:space="preserve">
+                <path fill="currentColor"
+                    d="M27.754 2.119h-8.203c-3.957 0-7.178 3.22-7.178 7.178 0 3.61 2.679 6.606 6.152 7.105v3.149a1.02 1.02 0 0 0 .633.947c.378.158.822.073 1.118-.222l3.801-3.801h3.677c3.957 0 7.246-3.22 7.246-7.178s-3.289-7.178-7.246-7.178m-8.203 8.203a1.025 1.025 0 1 1 0-2.05 1.025 1.025 0 0 1 0 2.05m4.102 0a1.025 1.025 0 1 1 0-2.05 1.025 1.025 0 0 1 0 2.05m4.102 0a1.025 1.025 0 1 1 0-2.05 1.025 1.025 0 0 1 0 2.05"
+                    data-original="#fff" />
+                <path fill="currentColor"
+                    d="M23.037 32.881a3.08 3.08 0 0 0 3.076-3.076v-4.102c0-.442-.282-.833-.701-.972l-6.138-2.051a1.03 1.03 0 0 0-.893.119l-2.61 1.739c-2.764-1.318-6.043-4.597-7.361-7.361l1.739-2.61a1.03 1.03 0 0 0 .119-.893L8.217 7.536a1.02 1.02 0 0 0-.971-.7h-4.17A3.067 3.067 0 0 0 0 9.898c0 11.814 11.223 22.983 23.037 22.983"
+                    data-original="#fff" />
+            </svg>
+
+            <svg class="fixed__socials__close" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                viewBox="0 0 1.117 1.117" xml:space="preserve">
+                <path
+                    d="M.016.093a.056.056 0 0 1 0-.077.056.056 0 0 1 .077 0l.465.466.466-.466a.055.055 0 0 1 .077 0 .054.054 0 0 1 0 .077L.636.558l.465.466a.054.054 0 0 1 0 .077.055.055 0 0 1-.077 0L.558.635l-.465.466a.056.056 0 0 1-.077 0 .055.055 0 0 1 0-.077L.481.558z"
+                    fill="currentColor" data-original="currentColor" />
+            </svg>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header__content">
+                <a href="/">
+                    <img class="header__logos" src="/assets/img/logo_lambard.png" />
+                </a>
+
+                <div class="header__menu-wrapper">
+                    <nav>
+                        <ul class="header__menu">
+                            <li><a href="#about">О нас</a></li>
+                            <li><a href="#advantages">Преимущества</a></li>
+                            <li><a href="#services">Услуги</a></li>
+                            <li><a href="#contact">Контакты</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="header__right">
+                        <a class="header__number" href="tel:+79384660013">8 (938) 466-00-13</a>
+
+                        <div class="header__socials">
+                            <a href="mailto:aio.fin@mail.ru" class="socials__item">
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0"
+                                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                                    class="">
+                                    <g>
+                                        <path
+                                            d="M467 76H45C20.137 76 0 96.262 0 121v270c0 24.885 20.285 45 45 45h422c24.655 0 45-20.03 45-45V121c0-24.694-20.057-45-45-45zm-6.302 30L287.82 277.967c-8.5 8.5-19.8 13.18-31.82 13.18s-23.32-4.681-31.848-13.208L51.302 106h409.396zM30 384.894V127.125L159.638 256.08 30 384.894zM51.321 406l129.587-128.763 22.059 21.943c14.166 14.166 33 21.967 53.033 21.967s38.867-7.801 53.005-21.939l22.087-21.971L460.679 406H51.321zM482 384.894 352.362 256.08 482 127.125v257.769z"
+                                            fill="#000000" opacity="1" data-original="#000000" class=""></path>
+                                    </g>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="menu-bar">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="close-btn"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="slider">
+            <div class="swiper swiper-header">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide slide-1">
+                        <div class="container">
+                            <div class="swiper-text">
+                                <h2>All IN ONE</h2>
+                                <p>
+                                    Кредитование через собственный Фонд, Банки и Частных
+                                    инвесторов.
+                                </p>
+                                <div class="slide-btns">
+                                    <a class="swiper-slide__btn swiper-slide__btn-1" data-bs-toggle="modal"
+                                        data-bs-target="#price-form">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ <span></span></a>
+                                    <!-- <a
+                      class="swiper-slide__btn swiper-slide__btn-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#price-form"
+                      >Get a consultation<span></span
+                    ></a> -->
+                                </div>
+                            </div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide slide-2">
+                        <div class="container">
+                            <div class="swiper-text">
+                                <h2>All IN ONE</h2>
+                                <p>
+                                    Помогаем получить финансирование на любые цели Вашего
+                                    бизнеса
+                                </p>
+                                <div class="slide-btns">
+                                    <a class="swiper-slide__btn swiper-slide__btn-1" data-bs-toggle="modal"
+                                        data-bs-target="#price-form">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ<span></span></a>
+                                    <!-- <a
+                      class="swiper-slide__btn swiper-slide__btn-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#price-form"
+                      >Get a consultation<span></span
+                    ></a> -->
+                                </div>
+                            </div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide slide-3">
+                        <div class="container">
+                            <div class="swiper-text">
+                                <h2>All IN ONE</h2>
+                                <p>
+                                    Наши клиенты — это развивающийся и крупный бизнес,
+                                    индивидуальные предприниматели и ООО.
+                                </p>
+                                <div class="slide-btns">
+                                    <a class="swiper-slide__btn swiper-slide__btn-1" data-bs-toggle="modal"
+                                        data-bs-target="#price-form">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ <span></span></a>
+                                    <!-- <a
+                      class="swiper-slide__btn swiper-slide__btn-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#price-form"
+                      >Get a consultation<span></span
+                    ></a> -->
+                                </div>
+                            </div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide slide-4">
+                        <div class="container">
+                            <div class="swiper-text">
+                                <h2>All IN ONE</h2>
+                                <p>
+                                    Наша основная цель - поддержка сегмента малого и среднего
+                                    предпринимательства, обучение финансовой грамотности.
+                                </p>
+                                <div class="slide-btns">
+                                    <a class="swiper-slide__btn swiper-slide__btn-1" data-bs-toggle="modal"
+                                        data-bs-target="#price-form">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ <span></span></a>
+                                    <!-- <a
+                      class="swiper-slide__btn swiper-slide__btn-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#price-form"
+                      >Get a consultation<span></span
+                    ></a> -->
+                                </div>
+                            </div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-header-btns">
+                    <div class="button-prev">
+                        <i class="fa-solid fa-angle-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="button-next">
+                        <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section_title">All In One - инвестиционный холдинг</h2>
+                <!-- <h3 class="section_title" style="font-weight: 400">
+                    All In One - инвестиционный холдинг.
+                </h3> -->
+                <div class="about__inner about__inner-1">
+                    <div class="about__left ">
+                        <h3>
+                            Кредитование через собственный Фонд, Банки и Частных инвесторов.
+                        </h3>
+                        <p>
+                            Помогаем получить финансирование на любые цели Вашего бизнеса.
+
+                        </p>
+                        <img src="/assets/img/diploma.webp" alt="" />
+                    </div>
+                    <div class="about__right">
+                        <h3>
+                            Наши клиенты — это развивающийся и крупный бизнес, индивидуальные
+                            предприниматели и ООО.
+
+                        </h3>
+                        <p>
+                            Наша основная цель - поддержка сегмента малого и среднего
+                            предпринимательства, обучение финансовой грамотности.
+
+                        </p>
+                        <img src="/assets/img/right-about.webp" alt="" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages" id="advantages">
+            <h2 class="section_title">Почему Вам нужно обратиться именно к нам</h2>
+
+            <div class="container">
+                <div class="advantages__inner">
+                    <div class="item mouse-cursor-gradient-tracking">
+                        Проведем детальный анализ вашей текущей ситуации.
+                    </div>
+
+                    <div class="item mouse-cursor-gradient-tracking">
+                        Предоставим профессиональные рекомендации по эффективному решению
+                        вашей проблемы.
+                    </div>
+                    <div class="item mouse-cursor-gradient-tracking">
+                        Подберем для Вас оптимальные варианты кредитных программ.
+                    </div>
+                    <div class="item mouse-cursor-gradient-tracking">
+                        Проведем комплексную проверку вас как заемщика «глазами банка»
+                    </div>
+                    <div class="item mouse-cursor-gradient-tracking">
+                        Поделимся с Вами рекомендациями как повысить шансы на
+                        положительное решение банка.
+                    </div>
+                    <div class="item mouse-cursor-gradient-tracking">
+                        Сформируем и подготовим пакет документов для подачи с учётом всех
+                        нюансов.
+                    </div>
+                    <div class="item mouse-cursor-gradient-tracking">
+                        Проконтролируем процесс на всех этапах.
+                    </div>
+                    <div class="item mouse-cursor-gradient-tracking">
+                        Окажем юридическую помощь и поддержку.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about services" id="services">
+            <div class="container">
+                <h2 class="section_title">Наши услуги</h2>
+                <div class="about__inner">
+                    <div class="about__left item">
+                        <h3>Кредит бизнесу </h3>
+                        <p>
+                            Подберем и одобрим наилучший вариант кредитования для бизнеса,
+                            даже если отказали все банки
+                        </p>
+                        <img src="/assets/img/bug.png" alt="" />
+
+                        <div class="title" data-bs-toggle="modal" data-bs-target="#service-1">
+                            Подробнее
+                        </div>
+                    </div>
+                    <div class="about__left item">
+                        <h3>Кредит бизнесу под залог недвижимости</h3>
+                        <p>
+                            Быстрое решение и онлайн оформление займов под залог любого вида
+                            недвижимости
+                        </p>
+                        <img src="/assets/img/wallet.png" alt="" />
+
+                        <div class="title" data-bs-toggle="modal" data-bs-target="#service-2">
+                            Подробнее
+                        </div>
+                    </div>
+                    <div class="about__left item">
+                        <h3>Бизнес - ипотека</h3>
+                        <p>
+                            Кредитование юридических лиц под залог приобретаемой
+                            недвижимости (жилой и коммерческой)
+                        </p>
+                        <img src="/assets/img/acat.png" alt="" />
+
+                        <div class="title" data-bs-toggle="modal" data-bs-target="#service-3">
+                            Подробнее
+                        </div>
+                    </div>
+                    <div class="about__left item">
+                        <h3>Лизинг</h3>
+                        <p>
+                            Поможем получить лизинг на недвижимость, новые автомобили или
+                            технику без аванса и переплат для юридических лиц и ИП
+                        </p>
+                        <img src="/assets/img/thumb.png" alt="" />
+
+                        <div class="title" data-bs-toggle="modal" data-bs-target="#service-4">
+                            Подробнее
+                        </div>
+                    </div>
+                    <div class="about__left item">
+                        <h3>Рефинансирование для бизнеса</h3>
+                        <p>
+                            Объедините действующие кредиты и займы — уменьшите платежи и
+                            процентную ставку, увеличьте срок, получите дополнительные
+                            средства
+                        </p>
+                        <img src="/assets/img/premium.png" alt="" />
+
+                        <div class="title" data-bs-toggle="modal" data-bs-target="#service-5">
+                            Подробнее
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        
+        
+    
+        <section class="form" id="contact">
+            <div class="container">
+                <div class="form__inner">
+                    <h2 class="section_title">Оставьте заявку и мы с вами свяжемся</h2>
+                    <p id="response" style="color: #000; font-size: 23px; text-align: center; margin: 0 0 20px"></p>
+                    <form name="sendmail" method="post" id="mail_sender" action="/mail/mail.php">
+                        <input type="text" required name="name" placeholder="Ваше имя"  />
+                        <input type="number" required name="phone" placeholder="Номер телефона"  />
+                        <button type="submit">Оставить заявку</button>
+                        <div id="responseMessage"></div>
+                    </form>
+                    <script>
+                            $(document).ready(function () {
+                                $("#mail_sender").on("submit", function (e) {
+                                    e.preventDefault();
+
+                                    $('#responseMessage').empty();
+
+
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "/mail/mail.php",
+                                        data: $(this).serialize(),
+                                        success: function (response) {
+                                            // $("#response").html(response);
+                                            $('#responseMessage').append('<p>' + response + '</p>');
+                                        },
+                                        error: function () {
+                                            // $("#response").html("An error occurred.");
+                                            $('#responseMessage').append('<p>Произошла ошибка.</p>');
+                                        },
+                                    });
+                                });
+                            });
+                        </script>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pg-footer">
+        <footer class="footer">
+            <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100"
+                preserveAspectRatio="none">
+                <path class="footer-wave-path"
+                    d="M851.8,100c125,0,288.3-45,348.2-64V0H0v44c3.7-1,7.3-1.9,11-2.9C80.7,22,151.7,10.8,223.5,6.3C276.7,2.9,330,4,383,9.8 c52.2,5.7,103.3,16.2,153.4,32.8C623.9,71.3,726.8,100,851.8,100z">
+                </path>
+            </svg>
+            <div class="footer-content">
+                <div class="footer-content-column">
+                    <div class="footer-logo">
+                        <a class="footer-logo-link" href="#">
+                            <span class="hidden-link-text">LOGO</span>
+                            <img src="/assets/img/logo_lambard.png" alt="" />
+                        </a>
+                    </div>
+                    <!-- <div class="footer-menu">
+            <h2 class="footer-menu-name">Get Started</h2>
+            <ul id="menu-get-started" class="footer-menu-list">
+              <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                <a href="#">Start</a>
+              </li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                <a href="#">Documentation</a>
+              </li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                <a href="#">Installation</a>
+              </li>
+            </ul>
+          </div> -->
+                </div>
+                <div class="footer-content-column">
+                    <div class="footer-menu">
+                        <!-- <h2 class="footer-menu-name">Мы оформляем</h2> -->
+                        <ul id="menu-company" class="footer-menu-list">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#about">О нас</a>
+                            </li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                                <a href="#advantages">Преимущества</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#services">Услуги</a>
+                            </li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                                <a href="#contact">Контакты</a>
+                            </li>
+
+                            <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="#">Careers</a>
+              </li>   -->
+                        </ul>
+                    </div>
+                    <!-- <div class="footer-menu">
+            <h2 class="footer-menu-name">Legal</h2>
+            <ul id="menu-legal" class="footer-menu-list">
+              <li
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
+                <a href="#">Privacy Notice</a>
+              </li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div> -->
+                </div>
+                <div class="footer-content-column">
+                    <div class="footer-menu">
+                        <!-- <h2 class="footer-menu-name">Quick Links</h2> -->
+                        <ul id="menu-quick-links" class="footer-menu-list">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a target="_blank" rel="noopener noreferrer" href="#services">Услуги</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a target="_blank" rel="noopener noreferrer" href="#contact">Контакты</a>
+                            </li>
+                            <!-- <li
+                  class="menu-item menu-item-type-post_type menu-item-object-page"
+                >
+                  <a href="#">Security</a>
+                </li>
+                <li
+                  class="menu-item menu-item-type-post_type menu-item-object-page"
+                >
+                  <a href="#">Blog</a>
+                </li>
+                <li
+                  class="menu-item menu-item-type-post_type_archive menu-item-object-customer"
+                >
+                  <a href="#">Customers</a>
+                </li>
+                <li
+                  class="menu-item menu-item-type-post_type menu-item-object-page"
+                >
+                  <a href="#">Reviews</a>
+                </li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-content-column">
+                    <div class="footer-call-to-action">
+                        <h2 class="footer-call-to-action-title">Есть вопросы?</h2>
+                        <p class="footer-call-to-action-description">
+                            Свяжитесь с нами
+                        </p>
+                        <a class="footer-call-to-action-button button" href="mailto:aio.fin@mail.ru">
+                            aio.fin@mail.ru
+                        </a>
+                    </div>
+                    <div class="footer-call-to-action">
+                        <h2 class="footer-call-to-action-title">Вы можете позвонить</h2>
+                        <p class="footer-call-to-action-link-wrapper">
+                            <a class="footer-call-to-action-link" href="tel:+79384660013">
+                                8 (938) 466-00-13
+                            </a>
+                        </p>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="footer-copyright">
+                <div class="footer-copyright-wrapper">
+                    <p class="footer-copyright-text">
+                        <a class="footer-copyright-link" href="#" target="_self">
+                            ©2024 Все права защищены.
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="/assets/js/index.js"></script>
+</body>
+
+</html>
