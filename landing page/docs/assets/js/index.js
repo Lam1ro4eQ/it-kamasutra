@@ -87,3 +87,7 @@ openFixed.addEventListener("click", () => {
 //     behavior: 'smooth' // Yumşaq keçid effekti
 //   });
 // });
+
+// document.querySelector('select').addEventListener('change', function() {
+//   this.classList.toggle('effect', !!this.value);
+// });

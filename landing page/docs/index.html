@@ -23,6 +23,13 @@
 </head>
 
 <body>
+    <script>
+        $(document).ready(function(){
+  $('select').on('change',function(){
+    $(this).css({color: $(this).find('option:selected').data('color')});
+  });
+});
+    </script>
     <div class="modal fade" id="price-form" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -46,6 +53,16 @@
                             <!-- <div class="col-12">
                                 <textarea rows="6" name="question" class="effect" placeholder="Сообщение"></textarea>
                             </div> -->
+                            <div class="col-12">
+                                <select rows="6" name="question" class="effect" required placeholder="Выбор услуги">
+                                    <option data-color="white" class="effect" value="" disabled selected hidden>Выбор услуги</option>
+                                    <option data-color="white" class="effect" value="Кредит бизнесу">Кредит бизнесу</option>
+                                    <option data-color="white" class="effect" value="Кредит бизнесу под залог недвижимости">Кредит бизнесу под залог недвижимости</option>
+                                    <option data-color="white" class="effect" value="Бизнес - ипотека">Бизнес - ипотека</option>
+                                    <option data-color="white" class="effect" value="Лизинг">Лизинг</option>
+                                    <option data-color="white" class="effect" value="Рефинансирование для бизнеса">Рефинансирование для бизнеса</option>
+                                </select>
+                            </div>
                             <div class="col-12">
                                 <input class="btn submit-btn" type="submit" name="submit2" value="Отправить" />
                             </div>
@@ -80,9 +97,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h2 class="modal-title fs-5" id="exampleModalLabel">
-                        Кредит бизнесу под залог недвижимости
-                        Быстрое решение и онлайн оформление займов под залог любого
-                        вида недвижимости.
+                        Подберем и одобрим наилучший вариант кредитования для бизнеса, даже если отказали все банки.
                     </h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -91,9 +106,10 @@
                         <h2>Условия</h2>
                         <ul>
                             <li>Аналитика по Вашему предприятию и кредитной истории <strong>бесплатно</strong></li>
-                            <li>Процентная ставка - <strong>от 20% годовых</strong></li>
-                            <li>Более <strong>90%</strong> заявок получают кредит</li>
-                            <li>Более <strong>1 млрд</strong> полученных кредитов</li>
+                            <li>Процентная ставка - от <strong>20% годовых</strong></li>
+                            <li>Сумма кредита - до <strong>100 000 000 рублей</strong></li>
+                            <li>Более <strong>90%</strong> заявок получают кредит!</li>
+                            
                         </ul>
                     </div>
 
@@ -165,7 +181,7 @@
                         <ul>
                             <li>Любая кредитная история</li>
                             <li>Возможная сумма займа - до <strong>200 000 000 рублей</strong></li>
-                            <li>Процентная ставка - <strong>от 25% </strong>годовых</li>
+                            <li>Процентная ставка - от <strong>25%</strong>годовых</li>
                             <li>Досрочное погашение без штрафов и комиссий</li>
                         </ul>
                     </div>
@@ -424,9 +440,9 @@
                     <div class="refinancing-conditions">
                         <h2>Условия</h2>
                         <ul>
-                            <li>Процентная ставка в месяц - <strong>от 25%</strong>годовых</li>
+                            <li>Процентная ставка в месяц - от<strong> 25%</strong>годовых</li>
                             <li>Срок займа - до <strong>30 лет</strong> с пролонгацией</li>
-                            <li>Сумма займа - от <strong>1 000 000 до 150 000 000 рублей</strong> до <strong>150 000 000 рублей</strong></li>
+                            <li>Сумма займа - от <strong>1 000 000 </strong>до<strong>150 000 000 рублей</strong></li>
                         </ul>
                     </div>
 
@@ -915,12 +931,12 @@
                             <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
                                 <a href="#advantages">Преимущества</a>
                             </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                            <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page">
                                 <a href="#services">Услуги</a>
                             </li>
                             <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
                                 <a href="#contact">Контакты</a>
-                            </li>
+                            </li> -->
 
                             <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page">
                 <a href="#">Careers</a>

@@ -1,7 +1,7 @@
 <?php
 
 // Получатель(ли)
-$admin_email = "aio.fin@mail.ru";
+$admin_email =  "aio.fin@mail.ru";
 
 // Тема письма
 $form_subject = "Заявка с сайта allinone.finance";
